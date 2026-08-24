@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetGuardAI — AI Network Intrusion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- ── HEADER ── -->
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            <a href="#home" class="brand">
+                <div class="brand-icon">🛡</div>
+                <span class="brand-name">Net<span class="accent">Guard</span>AI</span>
+            </a>
+            <nav class="pill-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#dataset">Dataset</a>
+                <a href="#model">Model</a>
+            </nav>
+            <a href="#form" class="btn-primary btn-sm">
+                <span class="pulse-dot"></span>
+                Analyze Traffic
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#dataset">Dataset</a>
+                <a href="#model">Model</a>
+                <a href="#form" class="btn-primary">Analyze Traffic</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section id="home" class="hero">
+        <div class="cyber-grid"></div>
+        <div class="blob blob-cyan" style="top:25%;right:25%;"></div>
+        <div class="blob blob-blue" style="bottom:33%;left:33%;"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                AI Network Intrusion Detection System
+            </div>
+            <h1 class="hero-title">Net<span class="text-gradient">Guard</span><br /><span class="dim">AI</span></h1>
+            <p class="hero-sub">Analyze network traffic using Machine Learning to detect malicious activities and
+                potential cyber attacks in real time.</p>
+            <div class="hero-actions">
+                <a href="#form" class="btn-primary btn-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M21 2H3v16h5v4l4-4h5l4-4V2z" />
+                        <line x1="9" y1="9" x2="15" y2="9" />
+                        <line x1="9" y1="13" x2="11" y2="13" />
+                    </svg>
+                    Analyze Traffic
+                </a>
+                <a href="#about" class="btn-outline btn-lg">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-meta">
+                <span class="meta-item"><span class="pulse-dot green"></span> Model Active</span>
+                <span class="divider"></span>
+                <span class="meta-item mono">Random Forest · NSL-KDD</span>
+                <span class="divider"></span>
+                <span class="meta-item mono accent">77.4% Accuracy</span>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" class="bounce">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <polyline points="19 12 12 19 5 12" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+        <div class="blob blob-cyan" style="top:0;right:0;opacity:0.4;"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-left">
+                    <span class="section-label">About the Project</span>
+                    <h2 class="section-title">ML-powered<br /><span class="text-gradient">threat detection</span></h2>
+                    <div class="card status-card">
+                        <div class="status-header">
+                            <div class="icon-box">🛡</div>
+                            <span class="mono muted small">System Status</span>
+                        </div>
+                        <div class="status-list">
+                            <div class="status-row"><span class="dot green"></span><span class="muted mono small">Model
+                                    Loaded</span><span class="mono small bold">Random Forest</span></div>
+                            <div class="status-row"><span class="dot green"></span><span
+                                    class="muted mono small">Dataset</span><span class="mono small bold">NSL-KDD</span>
+                            </div>
+                            <div class="status-row"><span class="dot green"></span><span
+                                    class="muted mono small">Features</span><span class="mono small bold">41
+                                    Parameters</span></div>
+                            <div class="status-row"><span class="dot green"></span><span
+                                    class="muted mono small">Classes</span><span class="mono small bold">Normal /
+                                    Attack</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <p class="about-text">This system uses machine learning models trained on the <span
+                            class="accent bold">NSL-KDD dataset</span> to classify network traffic as <span
+                            class="success bold">Normal</span> or <span class="danger bold">Attack</span>. The
+                        application helps identify malicious activity and demonstrates how AI can assist cybersecurity
+                        analysts.</p>
+                    <p class="about-sub">The NSL-KDD dataset resolves inherent problems in the original KDD'99 dataset —
+                        removing redundant records to ensure classifiers are not biased. With 41 network traffic
+                        features, our model achieves a <span class="accent mono bold">0.964 ROC AUC</span> score.</p>
+                    <div class="feature-grid">
+                        <div class="feature-card"><span class="feat-icon">⚡</span>
+                            <p class="feat-title">Real-time Classification</p>
+                            <p class="feat-desc">Instant Normal/Attack verdict</p>
+                        </div>
+                        <div class="feature-card"><span class="feat-icon">🧠</span>
+                            <p class="feat-title">Ensemble Learning</p>
+                            <p class="feat-desc">Random Forest with 100 trees</p>
+                        </div>
+                        <div class="feature-card"><span class="feat-icon">📊</span>
+                            <p class="feat-title">Confidence Scoring</p>
+                            <p class="feat-desc">Probability-based confidence</p>
+                        </div>
+                        <div class="feature-card"><span class="feat-icon">🔍</span>
+                            <p class="feat-title">Feature Analysis</p>
+                            <p class="feat-desc">41 traffic parameters analyzed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DATASET & MODEL ── -->
+    <section id="dataset" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-num">02/</span>
+                    <h2 class="section-title-lg">Dataset &<br /><span class="text-gradient">Model</span></h2>
+                </div>
+                <p class="section-desc">NSL-KDD benchmark dataset powering our Random Forest classifier.</p>
+            </div>
+
+            <h3 class="subsection-label">Dataset Information</h3>
+            <div class="dataset-grid">
+                <div class="card card-wide">
+                    <div class="card-header-row">
+                        <div class="icon-box accent-bg">🗄</div>
+                        <span class="mono muted small">Dataset</span>
+                    </div>
+                    <p class="big-number">NSL-KDD</p>
+                    <p class="muted small">Network Security Lab — Knowledge Discovery &amp; Data Mining</p>
+                </div>
+                <div class="card card-tall">
+                    <div><span class="mono muted small">Classes</span>
+                        <p class="big-number-sm">2</p>
+                    </div>
+                    <div class="class-tags">
+                        <div class="tag-normal">✓ Normal</div>
+                        <div class="tag-attack">⚠ Attack</div>
+                        <p class="muted small center">Binary classification of network traffic patterns</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">Training Samples</span>
+                    <p class="big-number-sm">125,973</p>
+                    <div class="progress-track">
+                        <div class="progress-fill primary" style="width:85%"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">Testing Samples</span>
+                    <p class="big-number-sm">22,544</p>
+                    <div class="progress-track">
+                        <div class="progress-fill accent" style="width:15%"></div>
+                    </div>
+                </div>
+                <div class="card card-full">
+                    <div class="features-row">
+                        <div><span class="mono muted small block mb">Features</span>
+                            <p class="big-number-sm">41 Parameters</p>
+                        </div>
+                        <div class="feature-tags">
+                            <span class="ftag">duration</span><span class="ftag">protocol_type</span><span
+                                class="ftag">service</span>
+                            <span class="ftag">flag</span><span class="ftag">src_bytes</span><span
+                                class="ftag">dst_bytes</span>
+                            <span class="ftag">land</span><span class="ftag">wrong_fragment</span><span
+                                class="ftag">urgent</span>
+                            <span class="ftag">hot</span><span class="ftag">+31 more</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-label" id="model">Model Information</h3>
+            <div class="model-grid">
+                <div class="card card-primary-border">
+                    <div class="flex-row gap-sm mb"><span class="pulse-dot blue"></span><span
+                            class="mono muted small">Best Model</span></div>
+                    <p class="model-name">Random<br />Forest</p>
+                    <p class="mono muted small">Trained · NSL-KDD</p>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">Accuracy</span>
+                    <div class="metric-row"><span class="metric-big">77.4</span><span class="metric-unit">%</span></div>
+                    <div class="progress-track">
+                        <div class="progress-fill success" style="width:77.4%"></div>
+                    </div>
+                    <p class="muted small mt">On NSL-KDD test set (22,544 samples)</p>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">ROC AUC</span>
+                    <div class="metric-row"><span class="metric-big accent">0.964</span></div>
+                    <div class="progress-track">
+                        <div class="progress-fill accent" style="width:96.4%"></div>
+                    </div>
+                    <p class="muted small mt">Area under ROC curve — excellent discrimination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FORM ── -->
+    <section id="form" class="section">
+        <div class="container container-md">
+            <div class="mb-lg">
+                <span class="section-num">03/</span>
+                <h2 class="section-title">Analyze Network <span class="text-gradient">Traffic</span></h2>
+                <p class="muted">Enter network connection parameters to classify traffic as Normal or Attack.</p>
+            </div>
+
+            <div class="card form-card">
+                <div class="terminal-bar">
+                    <span class="dot red-dot"></span>
+                    <span class="dot yellow-dot"></span>
+                    <span class="dot green-dot"></span>
+                    <span class="mono muted small ml">network_analyzer.py — NetGuardAI</span>
+                    <div class="terminal-status"><span class="pulse-dot green"></span><span
+                            class="mono small success">READY</span></div>
+                </div>
+
+                <form method="POST" action="/predict" id="trafficForm">
+                    <!-- Network Basics -->
+                    <div class="form-section">
+                        <div class="section-divider">
+                            <div class="divider-line"></div>
+                            <h3 class="form-section-title">Network Basics</h3>
+                        </div>
+                        <div class="grid-3">
+                            <div class="field">
+                                <label class="field-label">Protocol</label>
+                                <div class="select-wrap">
+                                    <select name="protocol_type">
+                                        <option value="tcp">TCP</option>
+                                        <option value="udp">UDP</option>
+                                        <option value="icmp">ICMP</option>
+                                    </select>
+                                    <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Service</label>
+<select name="service">
+
+    <option value="http">HTTP</option>
+    <option value="ftp">FTP</option>
+    <option value="smtp">SMTP</option>
+    <option value="ssh">SSH</option>
+    <option value="telnet">TELNET</option>
+    <option value="domain_u">DOMAIN</option>
+    <option value="ftp_data">FTP DATA</option>
+    <option value="private">PRIVATE</option>
+    <option value="other">OTHER</option>
+    <option value="auth">AUTH</option>
+    <option value="finger">FINGER</option>
+    <option value="eco_i">ECO I</option>
+    <option value="ecr_i">ECR I</option>
+    <option value="imap4">IMAP4</option>
+    <option value="pop_3">POP 3</option>
+    <option value="ldap">LDAP</option>
+    <option value="domain">DOMAIN</option>
+    <option value="ftp_data">FTP DATA</option>
+    <option value="exec">EXEC</option>
+    <option value="login">LOGIN</option>
+    <option value="shell">SHELL</option>
+    <option value="sunrpc">SUNRPC</option>
+    <option value="uucp">UUCP</option>
+    <option value="uucp_path">UUCP PATH</option>
+    <option value="whois">WHOIS</option>
+    <option value="gopher">GOPHER</option>
+    <option value="http_443">HTTP 443</option>
+    <option value="http_2784">HTTP 2784</option>
+    <option value="http_8001">HTTP 8001</option>
+    <option value="iso_tsap">ISO TSAP</option>
+    <option value="klogin">KLOGIN</option>
+    <option value="kshell">KSHELL</option>
+    <option value="netbios_dgm">NETBIOS DGM</option>
+    <option value="netbios_ns">NETBIOS NS</option>
+    <option value="netbios_ssn">NETBIOS SSN</option>
+    <option value="ntp_u">NTP U</option>
+    <option value="printer">PRINTER</option>
+    <option value="remote_job">REMOTE JOB</option>
+    <option value="rje">RJE</option>
+    <option value="sql_net">SQL NET</option>
+    <option value="tftp_u">TFTP U</option>
+    <option value="time">TIME</option>
+    <option value="tim_i">TIM I</option>
+    <option value="urp_i">URP I</option>
+    <option value="urh_i">URH I</option>
+    <option value="vmnet">VMNET</option>
+    <option value="z39_50">Z39 50</option>
+    <option value="x11">X11</option>
+    <option value="irc">IRC</option>
+
+</select>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Flag</label>
+                                <div class="select-wrap">
+                                    <select name="flag">
+                                        <option value="SF">SF</option>
+                                        <option value="S0">S0</option>
+                                        <option value="REJ">REJ</option>
+                                        <option value="RSTO">RSTO</option>
+                                        <option value="RSTR">RSTR</option>
+                                        <option value="SH">SH</option>
+                                        <option value="S1">S1</option>
+                                        <option value="S2">S2</option>
+                                        <option value="S3">S3</option>
+                                        <option value="OTH">OTH</option>
+                                    </select>
+                                    <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Traffic Statistics -->
+                    <div class="form-section">
+                        <div class="section-divider">
+                            <div class="divider-line"></div>
+                            <h3 class="form-section-title">Traffic Statistics</h3>
+                        </div>
+                        <div class="grid-3">
+                            <div class="field">
+                                <label class="field-label">Duration</label>
+                                <div class="input-wrap"><input type="number" name="duration"  min="0" /><span
+                                        class="input-hint">seconds</span></div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Source Bytes</label>
+                                <div class="input-wrap"><input type="number" name="src_bytes" 
+                                        min="0" /><span class="input-hint">bytes</span></div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Destination Bytes</label>
+                                <div class="input-wrap"><input type="number" name="dst_bytes"  min="0" /><span
+                                        class="input-hint">bytes</span></div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Connection Count</label>
+                                <div class="input-wrap"><input type="number" name="count"  min="0" /><span
+                                        class="input-hint">connections</span></div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Server Count</label>
+                                <div class="input-wrap"><input type="number" name="srv_count"  min="0" /><span
+                                        class="input-hint">connections</span></div>
+                            </div>
+                            <div class="field">
+                                <label class="field-label">Hot Indicators</label>
+                                <div class="input-wrap"><input type="number" name="hot"  min="0" /><span
+                                        class="input-hint">count</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Parameters -->
+                    <div class="form-section">
+                        <button type="button" class="advanced-toggle" id="advancedToggle">
+                            <svg id="advancedArrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg>
+                            <span class="mono bold small">Advanced Network Features</span>
+                            <span class="mono muted small ml-auto" id="advancedLabel">+ 33 parameters</span>
+                        </button>
+                        <div class="advanced-panel" id="advancedPanel">
+                            <div class="adv-group">
+                                <p class="mono muted small mb-sm">Connection Features</p>
+                                <div class="grid-4">
+                                    <div class="field"><label class="field-label-sm">land</label><input type="number"
+                                            name="land"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">wrong fragment</label><input
+                                            type="number" name="wrong_fragment" min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">urgent</label><input type="number"
+                                            name="urgent"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num failed logins</label><input
+                                            type="number" name="num_failed_logins"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">logged in</label><input
+                                            type="number" name="logged_in"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num compromised</label><input
+                                            type="number" name="num_compromised"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">root shell</label><input
+                                            type="number" name="root_shell"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">su attempted</label><input
+                                            type="number" name="su_attempted"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num root</label><input
+                                            type="number" name="num_root"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num file creations</label><input
+                                            type="number" name="num_file_creations"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num shells</label><input
+                                            type="number" name="num_shells"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num access files</label><input
+                                            type="number" name="num_access_files" min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">num outbound cmds</label><input
+                                            type="number" name="num_outbound_cmds"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">is host login</label><input
+                                            type="number" name="is_host_login"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">is guest login</label><input
+                                            type="number" name="is_guest_login"  min="0" /></div>
+                                </div>
+                            </div>
+                            <div class="adv-group">
+                                <p class="mono muted small mb-sm">Rate Features (0.0 – 1.0)</p>
+                                <div class="grid-4">
+                                    <div class="field"><label class="field-label-sm">serror rate</label><input
+                                            type="number" name="serror_rate"  min="0" max="1" step="0.01" />
+                                    </div>
+                                    <div class="field"><label class="field-label-sm">srv serror rate</label><input
+                                            type="number" name="srv_serror_rate"  min="0" max="1"
+                                            step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">rerror rate</label><input
+                                            type="number" name="rerror_rate"  min="0" max="1" step="0.01" />
+                                    </div>
+                                    <div class="field"><label class="field-label-sm">srv rerror rate</label><input
+                                            type="number" name="srv_rerror_rate"  min="0" max="1"
+                                            step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">same srv rate</label><input
+                                            type="number" name="same_srv_rate"  min="0" max="1" step="0.01" />
+                                    </div>
+                                    <div class="field"><label class="field-label-sm">diff srv rate</label><input
+                                            type="number" name="diff_srv_rate"  min="0" max="1" step="0.01" />
+                                    </div>
+                                    <div class="field"><label class="field-label-sm">srv diff host rate</label><input
+                                            type="number" name="srv_diff_host_rate"  min="0" max="1"
+                                            step="0.01" /></div>
+                                </div>
+                            </div>
+                            <div class="adv-group">
+                                <p class="mono muted small mb-sm">Destination Host Features</p>
+                                <div class="grid-4">
+                                    <div class="field"><label class="field-label-sm">dst host count</label><input
+                                            type="number" name="dst_host_count"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host srv count</label><input
+                                            type="number" name="dst_host_srv_count"  min="0" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host same srv
+                                            rate</label><input type="number" name="dst_host_same_srv_rate" 
+                                            min="0" max="1" step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host diff srv
+                                            rate</label><input type="number" name="dst_host_diff_srv_rate" 
+                                            min="0" max="1" step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host same src port
+                                            rate</label><input type="number" name="dst_host_same_src_port_rate"
+                                             min="0" max="1" step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host srv diff host
+                                            rate</label><input type="number" name="dst_host_srv_diff_host_rate"
+                                             min="0" max="1" step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host serror rate</label><input
+                                            type="number" name="dst_host_serror_rate"  min="0" max="1"
+                                            step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host srv serror
+                                            rate</label><input type="number" name="dst_host_srv_serror_rate" 
+                                            min="0" max="1" step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host rerror rate</label><input
+                                            type="number" name="dst_host_rerror_rate"  min="0" max="1"
+                                            step="0.01" /></div>
+                                    <div class="field"><label class="field-label-sm">dst host srv rerror
+                                            rate</label><input type="number" name="dst_host_srv_rerror_rate" 
+                                            min="0" max="1" step="0.01" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary btn-lg" id="submitBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            Analyze Traffic
+                        </button>
+                        <p class="mono muted small">All 41 NSL-KDD features will be analyzed</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── RESULTS (rendered by Flask via Jinja2) ── -->
+    {% if result %}
+    <section id="results" class="section">
+        <div class="container">
+            <div class="mb-lg">
+                <span class="section-num">04/ Analysis Complete</span>
+                <h2 class="section-title">Detection <span class="text-gradient">Results</span></h2>
+            </div>
+
+            <div class="results-top-grid">
+                <!-- Prediction -->
+                <div
+                    class="card result-card {% if result.prediction == 'attack' %}result-attack{% else %}result-normal{% endif %}">
+                    <div class="flex-row gap-sm mb">
+                        <span
+                            class="pulse-dot {% if result.prediction == 'attack' %}red{% else %}green{% endif %}"></span>
+                        <span class="mono muted small">Prediction</span>
+                    </div>
+                    <div class="prediction-main">
+                        <span class="pred-icon">{% if result.prediction == 'attack' %}⚠️{% else %}✅{% endif %}</span>
+                        <div>
+                            <p
+                                class="pred-label {% if result.prediction == 'attack' %}danger{% else %}success{% endif %}">
+                                {% if result.prediction == 'attack' %}ATTACK{% else %}NORMAL{% endif %}
+                            </p>
+                            <p
+                                class="pred-sub {% if result.prediction == 'attack' %}danger-muted{% else %}success-muted{% endif %}">
+                                {% if result.prediction == 'attack' %}Malicious activity detected{% else %}Traffic
+                                appears benign{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pred-tags">
+                        <div class="pred-tag"><span class="muted mono small">Protocol:</span><span
+                                class="mono small bold">{{ result.protocol | upper }}</span></div>
+                        <div class="pred-tag"><span class="muted mono small">Service:</span><span
+                                class="mono small bold">{{ result.service | upper }}</span></div>
+                        <div class="pred-tag"><span class="muted mono small">Flag:</span><span
+                                class="mono small bold">{{ result.flag }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Confidence -->
+                <div class="card">
+                    <span class="mono muted small block mb">Confidence</span>
+                    <div class="metric-row"><span class="metric-big">{{ result.confidence }}</span><span
+                            class="metric-unit">%</span></div>
+                    <div class="confidence-ring">
+                        <svg viewBox="0 0 100 100" class="ring-svg">
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="#334155" stroke-width="8" />
+                            <circle cx="50" cy="50" r="40" fill="none"
+                                stroke="{% if result.prediction == 'attack' %}#EF4444{% else %}#22C55E{% endif %}"
+                                stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ 2 * 3.14159 * 40 }}"
+                                stroke-dashoffset="{{ 2 * 3.14159 * 40 * (1 - result.confidence / 100) }}"
+                                transform="rotate(-90 50 50)" />
+                        </svg>
+                        <div
+                            class="ring-label {% if result.prediction == 'attack' %}danger{% else %}success{% endif %}">
+                            {% if result.confidence >= 90 %}HIGH{% elif result.confidence >= 70 %}MED{% else %}LOW{%
+                            endif %}
+                        </div>
+                    </div>
+                    <p class="muted small center">Prediction confidence score</p>
+                </div>
+
+                <!-- Risk Level -->
+                <div class="card">
+                    <span class="mono muted small block mb">Risk Level</span>
+                    <div class="risk-badge risk-{{ result.risk | lower }}">
+                        <span
+                            class="pulse-dot {% if result.risk == 'HIGH' %}red{% elif result.risk == 'MEDIUM' %}yellow{% else %}green{% endif %}"></span>
+                        {{ result.risk }}
+                    </div>
+                    <div class="risk-bars">
+                        <div class="risk-bar-row">
+                            <div class="risk-bar-fill success {% if result.risk == 'LOW' %}active{% endif %}"></div>
+                            <span
+                                class="mono small {% if result.risk == 'LOW' %}success{% else %}muted{% endif %}">LOW</span>
+                        </div>
+                        <div class="risk-bar-row">
+                            <div class="risk-bar-fill warning {% if result.risk == 'MEDIUM' %}active{% endif %}"></div>
+                            <span
+                                class="mono small {% if result.risk == 'MEDIUM' %}warning{% else %}muted{% endif %}">MEDIUM</span>
+                        </div>
+                        <div class="risk-bar-row">
+                            <div class="risk-bar-fill danger {% if result.risk == 'HIGH' %}active{% endif %}"></div>
+                            <span
+                                class="mono small {% if result.risk == 'HIGH' %}danger{% else %}muted{% endif %}">HIGH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Actions -->
+                <div class="card actions-card">
+                    <span class="mono muted small block mb">
+                        {% if result.prediction == 'attack' %}⚠ Recommended Actions{% else %}✓ Status{% endif %}
+                    </span>
+                    <div class="actions-grid">
+                        {% if result.prediction == 'attack' %}
+                        <div class="action-item"><span class="action-icon">🔍</span>
+                            <div>
+                                <p class="action-title">Monitor Network</p>
+                                <p class="action-desc">Enable deep packet inspection on affected subnet</p>
+                            </div>
+                        </div>
+                        <div class="action-item"><span class="action-icon">🚫</span>
+                            <div>
+                                <p class="action-title">Block IP</p>
+                                <p class="action-desc">Add source IP to firewall blacklist immediately</p>
+                            </div>
+                        </div>
+                        <div class="action-item"><span class="action-icon">🛡</span>
+                            <div>
+                                <p class="action-title">Enable Firewall Rules</p>
+                                <p class="action-desc">Activate IDS/IPS rules for detected attack pattern</p>
+                            </div>
+                        </div>
+                        <div class="action-item"><span class="action-icon">📣</span>
+                            <div>
+                                <p class="action-title">Notify Administrator</p>
+                                <p class="action-desc">Escalate to SOC team for incident response</p>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="action-item"><span class="action-icon">✅</span>
+                            <div>
+                                <p class="action-title">Traffic is Normal</p>
+                                <p class="action-desc">No suspicious patterns detected in this connection</p>
+                            </div>
+                        </div>
+                        <div class="action-item"><span class="action-icon">📊</span>
+                            <div>
+                                <p class="action-title">Continue Monitoring</p>
+                                <p class="action-desc">Maintain baseline monitoring for anomaly detection</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model Metrics -->
+            <div class="model-grid mt-md">
+                <div class="card">
+                    <span class="mono muted small block mb">Prediction Model</span>
+                    <p class="bold">Random Forest</p>
+                    <p class="mono muted small">Ensemble · 100 estimators</p>
+                    <div class="divider-h mt-sm"></div>
+                    <div class="kv-list">
+                        <div class="kv-row"><span class="muted mono small">Trained on</span><span
+                                class="mono small bold">NSL-KDD</span></div>
+                        <div class="kv-row"><span class="muted mono small">Features used</span><span
+                                class="mono small bold">41</span></div>
+                        <div class="kv-row"><span class="muted mono small">Model type</span><span
+                                class="mono small bold">Classification</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">Accuracy</span>
+                    <div class="metric-row"><span class="metric-big success">77.4</span><span
+                            class="metric-unit">%</span></div>
+                    <div class="progress-track">
+                        <div class="progress-fill success" style="width:77.4%"></div>
+                    </div>
+                    <p class="muted small mt">On NSL-KDD test set · 22,544 samples</p>
+                </div>
+                <div class="card">
+                    <span class="mono muted small block mb">ROC AUC</span>
+                    <div class="metric-row"><span class="metric-big accent">0.964</span></div>
+                    <div class="progress-track">
+                        <div class="progress-fill accent" style="width:96.4%"></div>
+                    </div>
+                    <p class="muted small mt">Excellent discrimination ability</p>
+                </div>
+            </div>
+
+            <!-- Charts (use your actual generated images here) -->
+            <div class="charts-grid mt-md">
+                <div class="card chart-card">
+                    <span class="mono muted small block mb">Confusion Matrix</span>
+                    <img src="{{ url_for('static', filename='confusion_matrix.png') }}" alt="Confusion Matrix"
+                        class="chart-img"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                    <div class="chart-placeholder" style="display:none">Confusion Matrix chart will appear here</div>
+                </div>
+                <div class="card chart-card">
+                    <span class="mono muted small block mb">ROC Curve (AUC = 0.964)</span>
+                    <img src="{{ url_for('static', filename='roc_curve.png') }}" alt="ROC Curve" class="chart-img"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                    <div class="chart-placeholder" style="display:none">ROC Curve chart will appear here</div>
+                </div>
+                <div class="card chart-card chart-full">
+                    <span class="mono muted small block mb">Feature Importance (Top 8)</span>
+                    <img src="{{ url_for('static', filename='feature_importance.png') }}" alt="Feature Importance"
+                        class="chart-img"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                    <div class="chart-placeholder" style="display:none">Feature Importance chart will appear here</div>
+                </div>
+            </div>
+
+            <div class="center mt-lg">
+                <a href="#form" class="btn-primary btn-lg">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 .49-4.95" />
+                    </svg>
+                    New Analysis
+                </a>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#home" class="brand">
+                <div class="brand-icon">🛡</div>
+                <span class="brand-name mono muted">Net<span class="accent">Guard</span>AI</span>
+            </a>
+            <div class="footer-tech">
+                <span class="muted small">Built using</span>
+                <span class="mono accent-muted">Python</span> <span class="muted">·</span>
+                <span class="mono accent-muted">Flask</span> <span class="muted">·</span>
+                <span class="mono accent-muted">Scikit-learn</span> <span class="muted">·</span>
+                <span class="mono accent-muted">Pandas</span> <span class="muted">·</span>
+                <span class="mono accent-muted">NumPy</span>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#dataset">Dataset</a>
+                <span class="muted small">© 2026 NetGuardAI</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-card">
+            <div class="spinner-wrap">
+                <div class="spinner-outer"></div>
+                <div class="spinner-inner"></div>
+                <div class="spinner-icon">🛡</div>
+            </div>
+            <p class="mono bold" id="loadingStep">Loading ML Model...</p>
+            <div class="loading-progress">
+                <div class="progress-track">
+                    <div class="progress-fill accent shimmer" id="progressBar" style="width:0%"></div>
+                </div>
+                <div class="progress-labels">
+                    <span class="mono muted small" id="progressLabel">Loading ML Model</span>
+                    <span class="mono small accent" id="progressPct">0%</span>
+                </div>
+            </div>
+            <div class="loading-steps" id="loadingSteps">
+                <div class="lstep pending" data-step="0">
+                    <span class="lstep-icon">○</span> Loading ML Model...
+                </div>
+                <div class="lstep pending" data-step="1">
+                    <span class="lstep-icon">○</span> Extracting Features...
+                </div>
+                <div class="lstep pending" data-step="2">
+                    <span class="lstep-icon">○</span> Running Prediction...
+                </div>
+                <div class="lstep pending" data-step="3">
+                    <span class="lstep-icon">○</span> Generating Report...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+                const section = document.getElementById("results");
+
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                }
+            });
+        // Header scroll effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+        // Advanced panel toggle
+        const advBtn = document.getElementById('advancedToggle');
+        const advPanel = document.getElementById('advancedPanel');
+        const advArrow = document.getElementById('advancedArrow');
+        const advLabel = document.getElementById('advancedLabel');
+        advBtn.addEventListener('click', () => {
+            const open = advPanel.classList.toggle('open');
+            advArrow.style.transform = open ? 'rotate(90deg)' : 'rotate(0deg)';
+            advLabel.textContent = open ? 'Collapse' : '+ 33 parameters';
+        });
+
+        // Loading overlay on form submit
+        const form = document.getElementById('trafficForm');
+        const overlay = document.getElementById('loadingOverlay');
+        const steps = ['Loading ML Model...', 'Extracting Features...', 'Running Prediction...', 'Generating Report...'];
+
+        form.addEventListener('submit', (e) => {
+            overlay.classList.add('active');
+            let step = 0, progress = 0;
+            const stepEls = document.querySelectorAll('.lstep');
+
+            function runStep(i) {
+                if (i >= steps.length) return;
+                document.getElementById('loadingStep').textContent = steps[i];
+                document.getElementById('progressLabel').textContent = steps[i].replace('...', '');
+                stepEls.forEach((el, idx) => {
+                    el.className = 'lstep ' + (idx < i ? 'done' : idx === i ? 'active' : 'pending');
+                    el.querySelector('.lstep-icon').textContent = idx < i ? '✓' : idx === i ? '◌' : '○';
+                });
+                const startPct = (i / steps.length) * 100;
+                const endPct = ((i + 1) / steps.length) * 100;
+                const duration = [600, 800, 700, 500][i];
+                const start = Date.now();
+                function tick() {
+                    const frac = Math.min((Date.now() - start) / duration, 1);
+                    const pct = Math.round(startPct + (endPct - startPct) * frac);
+                    document.getElementById('progressBar').style.width = pct + '%';
+                    document.getElementById('progressPct').textContent = pct + '%';
+                    if (frac < 1) requestAnimationFrame(tick);
+                    else runStep(i + 1);
+                }
+                requestAnimationFrame(tick);
+            }
+            runStep(0);
+        });
+    </script>
+</body>
+
+</html>

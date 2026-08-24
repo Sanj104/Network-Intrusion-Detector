@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+
+.ipynb_checkpoints/
+
+.venv/
+venv/
+env/
+
+.env
+
+.vscode/
+
+# Generated processed datasets
+data/X_train_processed.csv
+data/X_test_processed.csv
+data/y_train.csv
+data/y_test.csv
+
+# Raw dataset
+data/KDDTrain+.txt
+data/KDDTest+.txt
